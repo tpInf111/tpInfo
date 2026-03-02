@@ -119,8 +119,8 @@ public class Livraison implements Comparable<Livraison>
 
     /**
      * Compare cette livraison avec une autre livraison.
-     * return 1 si objet courant est prioritaire a autreLivraion
-     * return -1 si autreLivraion est prioritaire a objet courant
+     * return -1 si objet courant est prioritaire a autreLivraion
+     * return 1 si autreLivraion est prioritaire a objet courant
      * return 0 s'ils ont les deux la meme prioritaire 
      *
      * @param autreLivraison La seconde livraison à comparer avec cette livraison.
@@ -131,21 +131,21 @@ public class Livraison implements Comparable<Livraison>
         // TODO : À compléter/modifier
         // 1- le lot plus petit prioritaire
        if(this.lot< autreLivraison.getLot()){
-           return 1;
-       } else if (autreLivraison.getLot()<this.lot ) {
            return -1;
+       } else if (autreLivraison.getLot()<this.lot ) {
+           return 1;
        }
        // si meme lot prendre celuis avec urgentce (mais ne doit pas etre les deux)
        boolean thisUr = this.priorite == Priorite.URGENTE;
        boolean autreUr = autreLivraison.getPriorite()== Priorite.URGENTE;
-       if(thisUr && !autreUr) return 1;
-       if(autreUr && !thisUr) return -1;
+       if(thisUr && !autreUr) return -1;
+       if(autreUr && !thisUr) return 1;
 
        //si meme lot meme prioritie prendre celuis avec plus de tentative
         if (autreLivraison.getTentative()<this.tentative) {
-           return 1;
-       } else if (this.tentative< autreLivraison.getTentative()) {
            return -1;
+       } else if (this.tentative< autreLivraison.getTentative()) {
+           return 1;
        }
         // si tu est égale returne s'implememt 1
         return 0;

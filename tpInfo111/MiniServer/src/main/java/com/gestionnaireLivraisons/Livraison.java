@@ -16,9 +16,9 @@ public class Livraison
     // Les attributs d'instance
     private int id;
     private Priorite priorite;
-    private int tentative = 0;
+    private int tentative ;
     private int lot;
-    private Statut statut = Statut.EN_ATTENTE;
+    private Statut statut;
     // TODO : À compléter/modifier
 
     /**
@@ -32,6 +32,8 @@ public class Livraison
         this.priorite = priorite;
         this.lot = lot;
         this.id = prochainID();
+        this.tentative =0;
+        this.statut = Statut.EN_ATTENTE;
     }
 
     /**

@@ -39,6 +39,7 @@ public class Livraison
      */
     private static int prochainID() {
         // TODO : À compléter/modifier
+
         numSequentiel ++;
         return numSequentiel;
     }

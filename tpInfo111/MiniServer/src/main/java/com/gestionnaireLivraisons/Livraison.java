@@ -9,6 +9,7 @@ public class Livraison implements Comparable<Livraison>
         // TODO : À compléter/modifier
 {
 
+
     // Les données membres statiques
     private static int numSequentiel=0;
     // TODO : À compléter/modifier
@@ -20,6 +21,9 @@ public class Livraison implements Comparable<Livraison>
     private int lot;
     private Statut statut;
     // TODO : À compléter/modifier
+
+    // la constante valant 3
+    final int MAX_TENTATIVES = 3;
 
     /**
      * Constructeur d'une livraison.
@@ -101,8 +105,12 @@ public class Livraison implements Comparable<Livraison>
      */
     public boolean nouvelleTentative() {
         // TODO : À compléter/modifier
-        return false;
-
+        if(this.tentative<MAX_TENTATIVES){
+            this.tentative++;
+            return true;
+        }else{
+            return false;
+        }
     }
 
     /**

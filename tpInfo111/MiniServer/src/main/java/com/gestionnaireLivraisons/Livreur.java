@@ -97,7 +97,21 @@ public abstract class Livreur {
      */
     public IListeLivraisons supprimerToutesLesLivraisons() {
         // TODO : À compléter/modifier
-       return null;
+        //nouvelle liste (de type ListeLivraisons)
+        ListeLivraisons listeARetourner = new ListeLivraisons();
+
+        //parcour chaque livraison de la liste pour le rajouter a la liste a retourner
+        Iterator<Livraison> iterateur = this.livraisonsEnCours.iterator();
+        while (iterateur.hasNext()) {
+            Livraison liv = iterateur.next();
+            listeARetourner.ajouter(liv); // On l'ajoute à la nouvelle liste
+        }
+
+        //vider la liste du livreur
+        this.livraisonsEnCours.vider();
+
+        // Retourne la nouvell liste
+        return listeARetourner;
     }
 
     /**
@@ -108,7 +122,7 @@ public abstract class Livreur {
      */
     public Livraison rechercherLivraisonEnCours(int idLivraison) {
         // TODO : À compléter/modifier
-        return null;
+        return this.livraisonsEnCours.rechercher(idLivraison);
     }
 
     /**

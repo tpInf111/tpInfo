@@ -155,6 +155,7 @@ public class GestionnaireLivraisons implements GestionnaireEvenement {
      */
     private String traiterID(Evenement evenement) {
         // TODO : À compléter/modifier
+
         return "";
     }
 

@@ -104,7 +104,8 @@ public abstract class Livreur {
         Iterator<Livraison> iterateur = this.livraisonsEnCours.iterator();
         while (iterateur.hasNext()) {
             Livraison liv = iterateur.next();
-            listeARetourner.ajouter(liv); // On l'ajoute à la nouvelle liste
+            // on l'ajoute à la nouvelle liste
+            listeARetourner.ajouter(liv);
         }
 
         //vider la liste du livreur

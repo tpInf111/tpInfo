@@ -10,6 +10,11 @@ public class ListeChaineeLivreurs implements IListeChaineeLivreurs {
      * Constructeur
      */
     // TODO : À compléter/modifier
+    public ListeChaineeLivreurs(){
+        this.tete = null;
+        this.dernier = null;
+        this.nbreElements = 0;
+    }
 
     /**
      * Ajoute un objet Livreur à la fin de la liste
@@ -19,6 +24,22 @@ public class ListeChaineeLivreurs implements IListeChaineeLivreurs {
     @Override
     public void ajouter(Livreur unLivreur) throws ListeChaineeException {
         // TODO : À compléter/modifier
+        //si notre livreur est null
+        if(unLivreur==null ){
+            throw new ListeChaineeException("Erreur : impossible d'ajouter un livreur null a la liste. ");
+        }
+        //si le nouveau element est le premier de la liste
+        Noeud nouveau = new Noeud(unLivreur);
+        if(tete==null){
+            tete=nouveau;
+            dernier=nouveau;
+        }
+        //s'il n'est  pas le nouveau de la liste il faut le rajouter au dernier
+        else{
+            dernier.suivant=nouveau;
+            dernier = nouveau;
+        }
+        nbreElements++;
     }
 
     /**
@@ -30,8 +51,36 @@ public class ListeChaineeLivreurs implements IListeChaineeLivreurs {
     @Override
     public boolean supprimer(int idLivreur) {
         // TODO : À compléter/modifier
+        //voir si la liste est vide
+        if(tete==null){
+            return false;
+        }
+        //si la tete est le livreur a supprimer
+        if(tete.livreur.getId()==idLivreur){
+            if(tete==dernier){
+                dernier=null;
+            }
+            tete=tete.suivant;
+            nbreElements--;
+            return true;
+        }
+        Noeud courant = tete;
+        while (courant.suivant != null) {
+            if (courant.suivant.livreur.getId() == idLivreur) {
+                if (courant.suivant == dernier) {
+                    dernier = courant;
+                }
+                courant.suivant = courant.suivant.suivant;
+                nbreElements--;
+                return true;
+            }
+            courant = courant.suivant;
+        }
+
+        // si on a parcouru toute la liste sans trouver le livreur
         return false;
     }
+
 
     /**
      * Recherche un livreur par son id et le retourne.
@@ -42,6 +91,13 @@ public class ListeChaineeLivreurs implements IListeChaineeLivreurs {
     @Override
     public Livreur rechercher(int idLivreur) {
         // TODO : À compléter/modifier
+        Noeud courant = tete;
+        while (courant!=null){
+            if (courant.livreur.getId()==idLivreur) {
+                return courant.livreur;
+            }
+            courant=courant.suivant;
+        }
         return null;
     }
 
@@ -53,7 +109,7 @@ public class ListeChaineeLivreurs implements IListeChaineeLivreurs {
     @Override
     public int taille() {
         // TODO : À compléter/modifier
-        return 0;
+        return this.nbreElements;
     }
 
     /**
@@ -63,7 +119,16 @@ public class ListeChaineeLivreurs implements IListeChaineeLivreurs {
      */
     public Livreur[] toArray() {
         // TODO : À compléter/modifier
-        return null;
+        Livreur[] tableau = new Livreur[nbreElements];
+        Noeud courant = tete;
+        int index = 0;
+
+        while (courant!=null){
+            tableau[index]=courant.livreur;
+            courant= courant.suivant;
+            index++;
+        }
+        return tableau;
     }
 
     /**

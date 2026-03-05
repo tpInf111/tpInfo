@@ -60,6 +60,15 @@ public abstract class Livreur {
     }
 
     /**
+     * trouve le nombre de livraisons en cours
+     *
+     * @return le nombre de livraisons en cours
+     */
+    public int nbLivraisonsEnCours(){
+        return this.livraisonsEnCours.taille();
+    }
+
+    /**
      * Ajoute une livraison aux livraisons en cours.
      *
      * @param livraison La livraison à ajouter.

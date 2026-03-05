@@ -186,8 +186,34 @@ public class GestionnaireLivraisons implements GestionnaireEvenement {
      * @return La chaîne à renvoyer au client.
      */
     private String traiterGET(Evenement evenement) {
-        // TODO : À compléter/modifier
-        return "";
+        // done : À compléter/modifier
+        Connexion connexion = (Connexion) evenement.getSource();
+
+        Livreur livreur = this.livreursAuthentifies.get(connexion);
+        if (livreur == null){
+            return "AUTHENTICATION_ERROR";
+        }
+
+        int capacite = livreur.capaciteLivraison();
+        int nbDejaPresent = livreur.nbLivraisonsEnCours();
+        int nbAAttribuer = capacite-nbDejaPresent;
+
+        if (this.livraisonsAEffectuer.estVide() || nbAAttribuer <= 0){
+            return "EMPTY";
+        }
+
+        StringBuilder deliveries = new StringBuilder();
+        int nbAjoute = 0;
+
+        while(nbAjoute < nbAAttribuer && !this.livraisonsAEffectuer.estVide()){
+            Livraison livraison = this.livraisonsAEffectuer.retirer();
+            livraison.nouvelleTentative();
+            livraison.setStatut(Statut.EN_COURS);
+            livreur.ajouterLivraisonEnCours(livraison);
+            deliveries.append(" ").append(livraison.getId()).append(" ").append(livraison.getLot()).append(" ").append(livraison.getPriorite()).append(" ").append(livraison.getTentative());
+            nbAjoute++;
+        }
+        return "DELIVERIES " + nbAjoute + deliveries;
     }
 
     /**

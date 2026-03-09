@@ -297,7 +297,7 @@ public class GestionnaireLivraisons implements GestionnaireEvenement {
     private String traiterDELIVERED(Evenement evenement) {
         // TODO : À compléter/modifier
         Connexion connexion = (Connexion) evenement.getSource();
-  // vériffication conetction
+        // vériffication conetction
         Livreur livreur = this.livreursAuthentifies.get(connexion);
         if (livreur == null){
             return "AUTHENTICATION_ERROR";
@@ -373,7 +373,17 @@ public class GestionnaireLivraisons implements GestionnaireEvenement {
      */
     private String traiterINCOME(Evenement evenement) {
         // TODO : À compléter/modifier
-        return "";
+        Connexion connexion = (Connexion) evenement.getSource();
+        // vériffication conetction
+        Livreur livreur = this.livreursAuthentifies.get(connexion);
+        if (livreur == null){
+            return "AUTHENTICATION_ERROR";
+        }
+        // calcule du revnue
+        double revenu = livreur.calculerRevenu();
+        int nbLivraisons = livreur.nbLivraisonsEffectuees();
+
+        return "REVENU " + revenu + " " + nbLivraisons;
     }
 
     /**

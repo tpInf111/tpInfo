@@ -94,7 +94,7 @@ public class Livraison implements Comparable<Livraison>
     /**
      * Ajoute UN au numéro de tentative pour cette livraison.
      *
-     * @return False si on a atteint le nombre maximal de tentatives pour cette livraison. True sinon.
+     *  False si on a atteint le nombre maximal de tentatives pour cette livraison. True sinon.
      */
     public void nouvelleTentative() {
         // DONE : À compléter/modifier

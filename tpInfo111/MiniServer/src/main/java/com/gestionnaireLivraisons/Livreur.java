@@ -9,7 +9,6 @@ import java.util.Random;
  */
 public abstract class Livreur {
     // Les attrbuts d'un livreur
-    // TODO : À compléter/modifier
     private int id;
     private  String nom;
     private ListeLivraisons livraisonsEnCours;
@@ -21,7 +20,6 @@ public abstract class Livreur {
      * @param id  L'id du nouveau livreur.
      * @param nom Le nom du nouveau livreur.
      */
-    // TODO : À compléter/modifier
     public Livreur(int id,String nom){
         this.id=id;
         this.nom=nom;
@@ -35,7 +33,6 @@ public abstract class Livreur {
      * @return L'id de ce livreur.
      */
     public int getId() {
-        // TODO : À compléter/modifier
         return this.id;
     }
 
@@ -45,7 +42,6 @@ public abstract class Livreur {
      * @return Le nom de ce livreur.
      */
     public String getNom() {
-        // TODO : À compléter/modifier
         return this.nom;
     }
 
@@ -55,7 +51,6 @@ public abstract class Livreur {
      * @return true si oui, false sinon.
      */
     public boolean aDesLivraisonsEnCours() {
-        // TODO : À compléter/modifier
         return this.livraisonsEnCours.taille()>0;
     }
 
@@ -74,7 +69,6 @@ public abstract class Livreur {
      * @param livraison La livraison à ajouter.
      */
     public void ajouterLivraisonEnCours(Livraison livraison) {
-        // TODO : À compléter/modifier
         this.livraisonsEnCours.ajouter(livraison);
     }
 
@@ -84,7 +78,6 @@ public abstract class Livreur {
      * @param livraison La livraison à ajouter.
      */
     public void ajouterLivraisonEffectuee(Livraison livraison) {
-        // TODO : À compléter/modifier
         this.livraisonsEffectuees.ajouter(livraison);
     }
 
@@ -95,7 +88,6 @@ public abstract class Livreur {
      * @return La livraison supprimée ou null si non trouvée.
      */
     public Livraison supprimerLivraisonEnCours(int idLivraison) {
-        // TODO : À compléter/modifier
         return this.livraisonsEnCours.supprimer(idLivraison);
     }
 
@@ -105,7 +97,6 @@ public abstract class Livreur {
      * @return La liste des livraisons en cours avant suppressions.
      */
     public IListeLivraisons supprimerToutesLesLivraisons() {
-        // TODO : À compléter/modifier
         //nouvelle liste (de type ListeLivraisons)
         ListeLivraisons listeARetourner = new ListeLivraisons();
 
@@ -131,7 +122,6 @@ public abstract class Livreur {
      * @return La livraison si trouvée, null sinon.
      */
     public Livraison rechercherLivraisonEnCours(int idLivraison) {
-        // TODO : À compléter/modifier
         return this.livraisonsEnCours.rechercher(idLivraison);
     }
 
@@ -155,7 +145,6 @@ public abstract class Livreur {
      * @return L'itérateur.
      */
     public Iterator<Livraison> donneIterateurLivraisonsEnCours() {
-        // TODO : À compléter/modifier
         return this.livraisonsEnCours.iterator();
     }
 
@@ -165,7 +154,6 @@ public abstract class Livreur {
      * @return Le nombre de livraisons.
      */
     public int nbLivraisonsEffectuees() {
-        // TODO : À compléter/modifier
         return this.livraisonsEffectuees.taille();
     }
 }

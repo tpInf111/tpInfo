@@ -6,13 +6,11 @@ import java.util.ArrayList;
  * La classe qui modélise une livraison.
  */
 public class Livraison implements Comparable<Livraison>
-        // TODO : À compléter/modifier
 {
 
 
     // Les données membres statiques
     private static int numSequentiel=0;
-    // TODO : À compléter/modifier
 
     // Les attributs d'instance
     private int id;
@@ -31,7 +29,6 @@ public class Livraison implements Comparable<Livraison>
      * @param priorite La priorité de la nouvelle livraison.
      * @param lot      Le lot auquel cette livraison appartient.
      */
-    // TODO : À compléter/modifier
     public Livraison(Priorite priorite, int lot){
         this.priorite = priorite;
         this.lot = lot;
@@ -45,7 +42,6 @@ public class Livraison implements Comparable<Livraison>
      * @return prochainNumSequentiel : donne la valeur du nouveu numéro séquantiel
      */
     private static int prochainID() {
-        // TODO : À compléter/modifier
         numSequentiel ++;
         return numSequentiel;
     }
@@ -56,7 +52,6 @@ public class Livraison implements Comparable<Livraison>
      * @return L'id de cette livraison.
      */
     public int getId() {
-        // TODO : À compléter/modifier
         return this.id;
     }
 
@@ -66,7 +61,6 @@ public class Livraison implements Comparable<Livraison>
      * @return La priorite de cette livraison.
      */
     public Priorite getPriorite(){
-        // TODO : À compléter/modifier
         return this.priorite;
     }
 
@@ -76,7 +70,6 @@ public class Livraison implements Comparable<Livraison>
      * @return La tentative de cette livraison.
      */
     public int getTentative() {
-        // TODO : À compléter/modifier
         return this.tentative;
     }
 
@@ -86,7 +79,6 @@ public class Livraison implements Comparable<Livraison>
      * @return Le lot de cette livraison.
      */
     public int getLot() {
-        // TODO : À compléter/modifier
         return this.lot;
     }
 
@@ -121,7 +113,6 @@ public class Livraison implements Comparable<Livraison>
      */
     @Override
     public String toString() {
-        // TODO : À compléter/modifier
         return "livraison : "+ id +"\n"+
                 " [ priorite :" + priorite +
                 " ,tentative :" + tentative +"/"+ MAX_TENTATIVES +
@@ -140,7 +131,6 @@ public class Livraison implements Comparable<Livraison>
      */
     @Override
     public int compareTo(Livraison autreLivraison){
-        // TODO : À compléter/modifier
         // 1- le lot plus petit prioritaire
        if(this.lot< autreLivraison.getLot()){
            return -1;

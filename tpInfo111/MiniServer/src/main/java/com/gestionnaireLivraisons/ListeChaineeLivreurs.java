@@ -9,7 +9,6 @@ public class ListeChaineeLivreurs implements IListeChaineeLivreurs {
     /**
      * Constructeur
      */
-    // TODO : À compléter/modifier
     public ListeChaineeLivreurs(){
         this.tete = null;
         this.dernier = null;
@@ -23,7 +22,6 @@ public class ListeChaineeLivreurs implements IListeChaineeLivreurs {
      */
     @Override
     public void ajouter(Livreur unLivreur) throws ListeChaineeException {
-        // TODO : À compléter/modifier
         //si notre livreur est null
         if(unLivreur==null ){
             throw new ListeChaineeException("Erreur : impossible d'ajouter un livreur null a la liste. ");
@@ -50,7 +48,6 @@ public class ListeChaineeLivreurs implements IListeChaineeLivreurs {
      */
     @Override
     public boolean supprimer(int idLivreur) {
-        // TODO : À compléter/modifier
         //voir si la liste est vide
         if(tete==null){
             return false;
@@ -90,7 +87,6 @@ public class ListeChaineeLivreurs implements IListeChaineeLivreurs {
      */
     @Override
     public Livreur rechercher(int idLivreur) {
-        // TODO : À compléter/modifier
         Noeud courant = tete;
         while (courant!=null){
             if (courant.livreur.getId()==idLivreur) {
@@ -100,7 +96,16 @@ public class ListeChaineeLivreurs implements IListeChaineeLivreurs {
         }
         return null;
     }
-
+    /*
+      Affiche les élement dans la chaine
+     */
+    public void affiche(){
+        Noeud courant = tete;
+        while (courant!=null){
+            System.out.println(courant.livreur);
+            courant=courant.suivant;
+        }
+    }
     /**
      * Retourne le nombre d'éléments se trouvant dans la liste chaînée.
      *
@@ -108,7 +113,6 @@ public class ListeChaineeLivreurs implements IListeChaineeLivreurs {
      */
     @Override
     public int taille() {
-        // TODO : À compléter/modifier
         return this.nbreElements;
     }
 
@@ -118,7 +122,6 @@ public class ListeChaineeLivreurs implements IListeChaineeLivreurs {
      * @return Le tableau de livreurs.
      */
     public Livreur[] toArray() {
-        // TODO : À compléter/modifier
         Livreur[] tableau = new Livreur[nbreElements];
         Noeud courant = tete;
         int index = 0;

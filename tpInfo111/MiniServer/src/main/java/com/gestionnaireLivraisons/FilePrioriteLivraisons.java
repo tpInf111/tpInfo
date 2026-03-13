@@ -76,7 +76,7 @@ public class FilePrioriteLivraisons {
      *
      */
     public void afficher() {
-        // TODO : À compléter/modifier
+        // DODO : À compléter/modifier
         for(Livraison livraison : this.fileLivraisonPrio){
             System.out.print(livraison);
         }

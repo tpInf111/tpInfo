@@ -15,9 +15,9 @@ public class TestFilePrioriteLivraisons {
     private static FilePrioriteLivraisons fileTest = new FilePrioriteLivraisons();
 
     private static void testEstVide() {
-        System.out.print("Test estVide : ");
+        System.out.print("Test estVide : "+"\n");
 
-        // TODO : À compléter/modifier
+        // DODO : À compléter/modifier
         System.out.println(fileTest.estVide());
     }
 
@@ -25,9 +25,9 @@ public class TestFilePrioriteLivraisons {
      * Test de la méthode ajouter.
      */
     private static void testAjouter() {
-        System.out.print("Test ajouter : ");
+        System.out.print("Test ajouter : "+"\n");
 
-        // TODO : À compléter/modifier
+        // DODO : À compléter/modifier
         Livraison livraisonTest = new Livraison(Priorite.URGENTE, 1);
         fileTest.ajouter(livraisonTest);
         fileTest.afficher();
@@ -37,9 +37,9 @@ public class TestFilePrioriteLivraisons {
      * Test de la méthode ajouterTout.
      */
     private static void testAjouterTout() {
-        System.out.print("Test ajouterTout : ");
+        System.out.print("Test ajouterTout : "+"\n");
 
-        // TODO : À compléter/modifier
+        // DODO : À compléter/modifier
         List<Livraison> livraisons = new ArrayList<>();
 
         livraisons.add(new Livraison(Priorite.NORMALE, 3));
@@ -56,9 +56,9 @@ public class TestFilePrioriteLivraisons {
      * Test de la méthode taille.
      */
     private static void testTaille() {
-        System.out.print("Test taille : ");
+        System.out.print("Test taille : "+"\n");
 
-        // TODO : À compléter/modifier
+        // DODO : À compléter/modifier
         System.out.println("taille real: 7, taille par le méthode: "+fileTest.taille() );
     }
 
@@ -66,9 +66,9 @@ public class TestFilePrioriteLivraisons {
      * Test de la méthode retirer.
      */
     private static void testRetirer() {
-        System.out.print("Test retirer : ");
+        System.out.print("Test retirer : "+"\n");
 
-        // TODO : À compléter/modifier
+        // DODO : À compléter/modifier
 
         System.out.println("l'élement le plus prioritaire : " + fileTest.retirer());
         System.out.print("élement restant :");

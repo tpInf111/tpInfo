@@ -86,7 +86,16 @@ public class ListeLivraisons implements IListeLivraisons, Iterable<Livraison> {
         // done : À compléter/modifier
         return listeLivraison.size();
     }
-
+    /**
+     * Affiche les éléments contenus dans la file.
+     *
+     */
+    public void afficher() {
+        // DODO : À compléter/modifier
+        for (Livraison livraison : this.listeLivraison) {
+            System.out.print(livraison);
+        }
+    }
     /**
      * Retourne un itérateur pour cette liste.
      *

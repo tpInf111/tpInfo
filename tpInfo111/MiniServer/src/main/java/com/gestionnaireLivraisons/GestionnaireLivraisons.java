@@ -52,6 +52,7 @@ public class GestionnaireLivraisons implements GestionnaireEvenement {
      */
     private void lireFichierLivreurs() {
         try {
+
             List<String> lignes = Files.readAllLines(Path.of(GestionnaireLivraisons.fichierLivreurs), StandardCharsets.UTF_8);
 
             for (String ligne : lignes) {

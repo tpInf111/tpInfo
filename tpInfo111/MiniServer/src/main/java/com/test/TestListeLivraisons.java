@@ -28,7 +28,7 @@ public class TestListeLivraisons {
         System.out.print("Test supprimer : "+"\n");
 
         // DON : À compléter/modifier
-        listeLivraisons.supprimer(2);
+        listeLivraisons.supprimer(9);
         listeLivraisons.afficher();
     }
 
@@ -40,9 +40,9 @@ public class TestListeLivraisons {
 
         // TODO : À compléter/modifier
 
-       // System.out.println("Recherce de ID 2 (il a etait suprimer)"+listeLivraisons.rechercher(2));
-        System.out.println("Recherce de ID 1 (il a etait suprimer)"+listeLivraisons.rechercher(1));
-        System.out.println("Recherce de ID 3 (il a etait suprimer)"+listeLivraisons.rechercher(3));
+        System.out.println("Recherce de ID 9 (il a etait suprimer)"+listeLivraisons.rechercher(9));
+        System.out.println("Recherce de ID 8"+listeLivraisons.rechercher(8));
+        System.out.println("Recherce de ID 3 (pas dans listeLivraison)"+listeLivraisons.rechercher(3));
 
 
     }
@@ -55,7 +55,7 @@ public class TestListeLivraisons {
 
         // TODO : À compléter/modifier
         listeLivraisons.vider();
-        System.out.println("Le contnuer de la liste est ");
+        System.out.println("Le contenu de la liste est ");
         listeLivraisons.afficher();
     }
 
@@ -76,7 +76,7 @@ public class TestListeLivraisons {
         System.out.print("Test taille : "+"\n");
 
         // TODO : À compléter/modifier
-        System.out.println("taille avans ajout: "+ listeLivraisons.taille());
+        System.out.println("taille avant ajout: "+ listeLivraisons.taille());
         listeLivraisons.ajouter(lv1);
         listeLivraisons.ajouter(lv2);
         System.out.println(listeLivraisons.taille());

@@ -9,7 +9,7 @@ import java.util.ListIterator;
 public class ListeLivraisons implements IListeLivraisons, Iterable<Livraison> {
     // Les livraisons stockées dans une ArrayList
     // done : À compléter/modifier
-    ArrayList<Livraison> listeLivraison = new ArrayList<>();
+    private ArrayList<Livraison> listeLivraison = new ArrayList<>();
 
     /**
      * Ajout d'une livraison à la liste de livraisons.
@@ -28,16 +28,12 @@ public class ListeLivraisons implements IListeLivraisons, Iterable<Livraison> {
      * @return La livraison supprimée ou null si non trouvée.
      */
     public Livraison supprimer(int idLivraison) {
-        Livraison retirer = null;
-        for (int i=0; i < listeLivraison.size(); i++){
-            if (listeLivraison.get(i).getId() == idLivraison){
-                retirer = listeLivraison.get(i);
-                listeLivraison.remove(i);
-                return retirer;
-            }
-        }
         // done : À compléter/modifier DONE
-        return retirer;
+        int index =chercher(idLivraison);
+        if (index!=-1){
+            return listeLivraison.remove(index);
+        }
+        return null;
     }
 
     /**
@@ -47,15 +43,12 @@ public class ListeLivraisons implements IListeLivraisons, Iterable<Livraison> {
      * @return La livraison trouvée ou null si non trouvée.
      */
     public Livraison rechercher(int idLivraison) {
-        Livraison rechercher = null;
-        for (int i=0; i < listeLivraison.size(); i++){
-            if (listeLivraison.get(i).getId() == idLivraison){
-                rechercher = listeLivraison.get(i);
-                return rechercher;
-            }
-        }
         // done : À compléter/modifier DONE
-        return rechercher;
+        int index = chercher(idLivraison);
+        if (index!= -1){
+            return listeLivraison.get(index);
+        }
+        return null;
     }
 
     /**
@@ -116,7 +109,6 @@ public class ListeLivraisons implements IListeLivraisons, Iterable<Livraison> {
     private int chercher(int idLivraison) {
         // done : À compléter/modifier
         int index = -1;
-        Livraison retirer = null;
         for (int i=0; i < listeLivraison.size(); i++){
             if (listeLivraison.get(i).getId() == idLivraison){
                 index = i;

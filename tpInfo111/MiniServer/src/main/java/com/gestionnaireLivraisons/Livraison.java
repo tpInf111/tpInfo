@@ -117,7 +117,7 @@ public class Livraison implements Comparable<Livraison>
                 " [ priorite :" + priorite +
                 " ,tentative :" + tentative +"/"+ MAX_TENTATIVES +
                 " , Lot :" + lot +
-                " , Statut :"+ statut+" ]";
+                " , Statut :"+ statut+" ]\n";
     }
 
     /**

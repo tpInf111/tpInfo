@@ -141,11 +141,28 @@ public class GestionnaireLivraisons implements GestionnaireEvenement {
      * Applique la commande EXIT envoyée par un client.
      *
      * @param evenement L'évènement reçu.
-     * @return La chaîne à renvoyer au client.
+     * @return le message "END" au clien.
      */
     private String traiterEXIT(Evenement evenement) {
-        // TODO : À compléter/modifier
-        return "";
+        // DON : À compléter/modifier
+        Connexion connexion = (Connexion) evenement.getSource();
+        Livreur livreur = this.livreursAuthentifies.get(connexion);
+
+        // Si le livreur est authentifié
+        if (livreur != null) {
+            // Récupérer toutes ses livraisons en cours et les remettre dans la file
+            IListeLivraisons livraisonsNonTraitees = livreur.supprimerToutesLesLivraisons();
+
+            for (Livraison livraison : livraisonsNonTraitees) {
+                livraison.setStatut(Statut.EN_ATTENTE);
+                this.livraisonsAEffectuer.ajouter(livraison);
+            }
+
+            // Retirer le livreur des authentifiés
+            this.livreursAuthentifies.remove(connexion);
+        }
+
+        return "END";
     }
 
     /**
@@ -162,7 +179,7 @@ public class GestionnaireLivraisons implements GestionnaireEvenement {
 
         //verification de l'argument
         if(strID==null){
-            return "ID_ERROR";
+            return "BAD_ARGUMENT_ERROR";
         }
         int idLivreur;
 
@@ -170,28 +187,28 @@ public class GestionnaireLivraisons implements GestionnaireEvenement {
         try{
             idLivreur=Integer.parseInt(strID);
         }catch (NumberFormatException e){
-            return "ID_ERROR";
+            return "BAD_ARGUMENT_ERROR";
         }
 
         //verification si le livreur est enregistre
         Livreur livreur= this.livreursEnregistres.rechercher(idLivreur);
         if(livreur == null){
-            return "ID_ERROR"; // il n'est pas existant dans la base de donnee
+            return "AUTHENTICATION_ERROR"; // il n'est pas existant dans la base de donnee
         }
 
         //verification pour voir si le livreur est deja connecter a un autre key
         if(this.livreursAuthentifies.containsValue(livreur)){
-            return "ID_ERROR"; //il est deja connecter
+            return "TOO_MANY_CONNECTIONS_ERROR"; //il est deja connecter
         }
 
         //verification si connexion (key) est deja utiliser par un autre livreur
         if(this.livreursAuthentifies.containsKey(connexion)){
-            return "ID_ERROR"; // session a deja un user
+            return "ALREADY_REGISTERED_ERROR"; // session a deja un user
         }
 
         //Authentification réussie
         this.livreursAuthentifies.put(connexion, livreur);
-        return "ID_OK " + idLivreur;
+        return "AUTHORIZED " + idLivreur + " " + livreur.getNom();
     }
 
     /**

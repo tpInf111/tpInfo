@@ -113,7 +113,7 @@ public class Livraison implements Comparable<Livraison>
      */
     @Override
     public String toString() {
-        return "livraison : "+ id +"\n"+
+        return "livraison : "+ id +
                 " [ priorite :" + priorite +
                 " ,tentative :" + tentative +"/"+ MAX_TENTATIVES +
                 " , Lot :" + lot +

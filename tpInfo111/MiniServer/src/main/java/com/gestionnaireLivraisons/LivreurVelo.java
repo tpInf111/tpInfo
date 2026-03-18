@@ -34,6 +34,5 @@ public class LivreurVelo extends Livreur{
      */
     @Override
     public String toString() {
-        return "Livreur a velo[ "+"ID: " + this.getId() + ", Nom: " + this.getNom()+" ]";
-    }
+        return this.getId() + " VELO " +this.getNom();    }
 }

@@ -35,6 +35,5 @@ public class LivreurVoiture extends Livreur{
      */
     @Override
     public String toString() {
-        return "Livreur en voiture [ "+"ID: " + this.getId() + ", Nom: " + this.getNom()+" ]";
-    }
+        return this.getId() + " VOITURE " +this.getNom();    }
 }

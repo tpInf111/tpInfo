@@ -1,14 +1,9 @@
 package com.gestionnaireLivraisons;
 
-import java.util.ArrayList;
-
 /**
  * La classe qui modélise une livraison.
  */
-public class Livraison implements Comparable<Livraison>
-{
-
-
+public class Livraison implements Comparable<Livraison> {
     // Les données membres statiques
     private static int numSequentiel=0;
 
@@ -18,7 +13,7 @@ public class Livraison implements Comparable<Livraison>
     private int tentative ;
     private int lot;
     private Statut statut;
-    // TODO : À compléter/modifier
+    // DONE : À compléter/modifier
 
     // la constante valant 3
     final int MAX_TENTATIVES = 3;
@@ -94,7 +89,6 @@ public class Livraison implements Comparable<Livraison>
     /**
      * Ajoute UN au numéro de tentative pour cette livraison.
      *
-     *  False si on a atteint le nombre maximal de tentatives pour cette livraison. True sinon.
      */
     public void nouvelleTentative() {
         // DONE : À compléter/modifier
@@ -102,6 +96,11 @@ public class Livraison implements Comparable<Livraison>
             this.tentative++;
         }
     }
+
+    /**
+     *Vérifie s'il reste des tentatives
+     * @return False si on a atteint le nombre maximal de tentatives pour cette livraison. True sinon.
+     */
     public boolean resteTentatives(){
         return this.tentative < MAX_TENTATIVES;
     }
@@ -114,9 +113,8 @@ public class Livraison implements Comparable<Livraison>
     @Override
     public String toString() {
         return "livraison : "+ id +
-                " [ priorite :" + priorite +
+                " [ Lot : " + lot+", priorite :" + priorite +
                 " ,tentative :" + tentative +"/"+ MAX_TENTATIVES +
-                " , Lot :" + lot +
                 " , Statut :"+ statut+" ]\n";
     }
 
@@ -143,8 +141,8 @@ public class Livraison implements Comparable<Livraison>
        if(thisUr && !autreUr) return -1;
        if(autreUr && !thisUr) return 1;
 
-       //si meme lot meme prioritie prendre celuis avec plus de tentative
-        if (autreLivraison.getTentative()<this.tentative) {
+       // si meme lot meme prioritie prendre celuis avec plus de tentative
+       if (autreLivraison.getTentative()<this.tentative) {
            return -1;
        } else if (this.tentative< autreLivraison.getTentative()) {
            return 1;

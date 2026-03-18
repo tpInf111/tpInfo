@@ -22,7 +22,7 @@ class AuthenticationException extends Exception {
  */
 public class GestionnaireLivraisons implements GestionnaireEvenement {
     // Emplacement du fichier contenant la liste des livreurs enregistrés.
-    final private static String fichierLivreurs = "src/main/livreurs.txt";
+    final private static String fichierLivreurs = "C:\\Users\\victo\\IdeaProjects\\tpInfo\\tpInfo111\\MiniServer\\src\\main\\livreurs.txt";
 
     // Attributs d'ínstance pour un GestionnaireLivraisons
     final private IListeChaineeLivreurs livreursEnregistres;
@@ -296,8 +296,7 @@ public class GestionnaireLivraisons implements GestionnaireEvenement {
             livraison.nouvelleTentative();
             livraison.setStatut(Statut.EN_COURS);
             livreur.ajouterLivraisonEnCours(livraison);
-            deliveries.append(" ")
-                    .append(livraison.getId())
+            deliveries.append(" ").append(livraison.getId())
                     .append(" ").append(livraison.getLot())
                     .append(" ").append(livraison.getPriorite())
                     .append(" ").append(livraison.getTentative());

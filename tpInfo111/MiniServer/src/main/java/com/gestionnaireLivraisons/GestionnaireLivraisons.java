@@ -362,7 +362,7 @@ public class GestionnaireLivraisons implements GestionnaireEvenement {
      * @return La chaîne à renvoyer au client.
      */
     private String traiterFAILED(Evenement evenement) {
-        // Done : À compléter/modifier
+        // DONE : À compléter/modifier
         Connexion connexion= (Connexion) evenement.getSource();
         Livreur livreur = this.livreursAuthentifies.get(connexion);
 

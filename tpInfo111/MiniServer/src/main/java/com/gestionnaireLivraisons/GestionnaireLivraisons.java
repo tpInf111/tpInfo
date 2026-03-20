@@ -214,7 +214,7 @@ public class GestionnaireLivraisons implements GestionnaireEvenement {
 
         //verification si connexion (key) est deja utiliser par un autre livreur
         if(this.livreursAuthentifies.containsKey(connexion)){
-            return "ALREADY_REGISTERED_ERROR"; // session a deja un user
+            return "ALREADY_AUTHENTIFIED_ERROR"; // session a deja un user
         }
 
         //Authentification réussie
@@ -304,7 +304,6 @@ public class GestionnaireLivraisons implements GestionnaireEvenement {
 
         while(nbAjoute < nbAAttribuer && !this.livraisonsAEffectuer.estVide()){
             Livraison livraison = this.livraisonsAEffectuer.retirer();
-            //livraison.nouvelleTentative(); doit être fait dans failed?
             livraison.setStatut(Statut.EN_COURS);
             livreur.ajouterLivraisonEnCours(livraison);
             deliveries.append(" ").append(livraison.getId())
@@ -396,11 +395,11 @@ public class GestionnaireLivraisons implements GestionnaireEvenement {
         if(livraison.resteTentatives()){
             livraison.setStatut(Statut.EN_ATTENTE);
             this.livraisonsAEffectuer.ajouter(livraison);
-            return "ECHEC: Nouvelle tentative ->:"+livraison.getTentative()+"/3.";
+            return "FAILED_CONTINUE " + idLivraison;
         }else{
             livraison.setStatut(Statut.ECHOUEE);
             this.livraisonsEchouees.ajouter(livraison);
-            return "ECHEC DEFINITIF: nombre maximal de tentative atteint pour la livraison";
+            return "FAILED_ABORT " + idLivraison;
         }
     }
 
@@ -410,7 +409,7 @@ public class GestionnaireLivraisons implements GestionnaireEvenement {
      * @param evenement L'évènement reçu.
      */
     private String traiterINCOME(Evenement evenement) {
-        // TODO : À compléter/modifier
+        // DONE : À compléter/modifier
         Connexion connexion = (Connexion) evenement.getSource();
         // vériffication conetction
         Livreur livreur = this.livreursAuthentifies.get(connexion);
@@ -533,7 +532,7 @@ public class GestionnaireLivraisons implements GestionnaireEvenement {
                 }
             }
             if (connexDest==null){
-                return "AUTHENTIFICATION_ERROR";
+                return "AUTHENTICATION_ERROR";
             }
             connexDest.envoyer(msgEnvoyer);
         }

@@ -26,13 +26,16 @@ public class ListeChaineeLivreurs implements IListeChaineeLivreurs {
         if(unLivreur==null ){
             throw new ListeChaineeException("Erreur : impossible d'ajouter un livreur null a la liste. ");
         }
+        if(this.rechercher(unLivreur.getId()) != null){
+            throw new ListeChaineeException("Erreur: un livreur avec cet ID existe déjà");
+        }
         //si le nouveau element est le premier de la liste
         Noeud nouveau = new Noeud(unLivreur);
         if(tete==null){
             tete=nouveau;
             dernier=nouveau;
         }
-        //s'il n'est  pas le nouveau de la liste il faut le rajouter au dernier
+        //s'il n'est pas le nouveau de la liste il faut le rajouter au dernier
         else{
             dernier.suivant=nouveau;
             dernier = nouveau;

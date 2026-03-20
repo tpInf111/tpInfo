@@ -3,7 +3,7 @@ package com.gestionnaireLivraisons;
 /**
  * La classe de livreur en voiture
  */
-// TODO : À compléter/modifier
+// DONE : À compléter/modifier
 public class LivreurVoiture extends Livreur{
     public LivreurVoiture(int id, String nom){
         super(id,nom);

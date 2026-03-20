@@ -86,7 +86,7 @@ public class ListeLivraisons implements IListeLivraisons, Iterable<Livraison> {
     public void afficher() {
         // DODO : À compléter/modifier
         for (Livraison livraison : this.listeLivraison) {
-            System.out.print(livraison);
+            System.out.println(livraison);
         }
     }
     /**

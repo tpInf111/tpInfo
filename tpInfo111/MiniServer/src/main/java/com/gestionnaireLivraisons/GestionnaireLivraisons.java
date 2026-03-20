@@ -66,15 +66,15 @@ public class GestionnaireLivraisons implements GestionnaireEvenement {
                     // Créer le livreur avec le constructeur approprié
                     switch (typeLivreur) {
                         case "VELO":
-                            // TODO : À compléter/modifier
+                            // DONE : À compléter/modifier
                             livreur = new LivreurVelo(idLivreur,nomLivreur);
                             break;
                         case "CAMION":
-                            // TODO : À compléter/modifier
+                            // DONE : À compléter/modifier
                             livreur = new LivreurCamion(idLivreur,nomLivreur);
                             break;
                         case "VOITURE":
-                            // TODO : À compléter/modifier
+                            // DONE : À compléter/modifier
                             livreur = new LivreurVoiture(idLivreur,nomLivreur);
                             break;
                         default:

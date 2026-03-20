@@ -41,7 +41,7 @@ public class TestListeLivraisons {
     private static void testRechercher() {
         System.out.print("Test rechercher : "+"\n");
 
-        // TODO : À compléter/modifier
+        // DONE : À compléter/modifier
 
        // System.out.println("Recherce de ID 2 (il a etait suprimer)"+listeLivraisons.rechercher(2));
         System.out.println("Recherce de ID 8 (il a etait suprimer)"+listeLivraisons.rechercher(8));
@@ -58,7 +58,7 @@ public class TestListeLivraisons {
     private static void testVider() {
         System.out.print("Test vider : "+"\n");
 
-        // TODO : À compléter/modifier
+        // DONE : À compléter/modifier
         listeLivraisons.vider();
         System.out.println("Le contnuer de la liste est ");
         listeLivraisons.afficher();
@@ -72,7 +72,7 @@ public class TestListeLivraisons {
     private static void testEstVide() {
         System.out.print("Test estVide : "+"\n");
 
-        // TODO : À compléter/modifier
+        // DONE : À compléter/modifier
         System.out.println(" la liste est vide: "+ listeLivraisons.estVide());
         System.out.println();
 
@@ -84,7 +84,7 @@ public class TestListeLivraisons {
     private static void testTaille() {
         System.out.print("Test taille : "+"\n");
 
-        // TODO : À compléter/modifier
+        // DONE : À compléter/modifier
         System.out.println("taille avans ajout: "+ listeLivraisons.taille());
         listeLivraisons.ajouter(lv1);
         listeLivraisons.ajouter(lv2);

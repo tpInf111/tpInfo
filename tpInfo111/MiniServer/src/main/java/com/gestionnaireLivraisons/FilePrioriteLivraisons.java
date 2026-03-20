@@ -10,12 +10,12 @@ import java.util.PriorityQueue;
  */
 public class FilePrioriteLivraisons {
     // Les livraisons stockées dans une file de priorité
-    // TODO : À compléter/modifier
+    // DONE : À compléter/modifier
     private PriorityQueue<Livraison> fileLivraisonPrio;
     /**
      * Construit une file de priorité.
      */
-    // TODO : À compléter/modifier
+    // DONE : À compléter/modifier
     public FilePrioriteLivraisons(){
         this.fileLivraisonPrio = new PriorityQueue<>();
     }
@@ -25,7 +25,7 @@ public class FilePrioriteLivraisons {
      * @return L'élément le plus prioritaire.
      */
     public Livraison retirer() {
-        // TODO : À compléter/modifier
+        // DONE : À compléter/modifier
         return this.fileLivraisonPrio.poll();
     }
 
@@ -35,7 +35,7 @@ public class FilePrioriteLivraisons {
      * @param element L'élément à ajouter à la file.
      */
     public void ajouter(Livraison element) {
-        // TODO : À compléter/modifier
+        // DONE : À compléter/modifier
         this.fileLivraisonPrio.add(element);
     }
 
@@ -45,7 +45,7 @@ public class FilePrioriteLivraisons {
      * @param elements L'ensemble des éléments à ajouter à la file.
      */
     public void ajouterTout(Iterable<Livraison> elements) {
-        // TODO : À compléter/modifier
+        // DONE : À compléter/modifier
         for(Livraison livraison :elements){
             this.fileLivraisonPrio.add(livraison);
         }
@@ -57,7 +57,7 @@ public class FilePrioriteLivraisons {
      * @return True si la file est vide. False sinon.
      */
     public boolean estVide() {
-        // TODO : À compléter/modifier
+        // DONE : À compléter/modifier
         return this.fileLivraisonPrio.size()==0;
     }
 
@@ -67,7 +67,7 @@ public class FilePrioriteLivraisons {
      * @return Le nombre d'éléments de la file.
      */
     public int taille() {
-        // TODO : À compléter/modifier
+        // DONE : À compléter/modifier
         return this.fileLivraisonPrio.size();
     }
 
@@ -80,7 +80,7 @@ public class FilePrioriteLivraisons {
         PriorityQueue<Livraison> copierFile = new PriorityQueue<>();
         copierFile.addAll(this.fileLivraisonPrio);
         while(!copierFile.isEmpty()){
-            System.out.print(copierFile.poll());
+            System.out.println(copierFile.poll());
         }
     }
 }
